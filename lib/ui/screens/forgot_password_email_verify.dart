@@ -1,51 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:task_manager/ui/screens/forgot_password_email_verify.dart';
 import 'package:task_manager/ui/widgets/screen_background.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class ForgotPasswordEmailVerify extends StatelessWidget {
+  const ForgotPasswordEmailVerify({super.key});
 
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    
-    void _onTapForgotPassword() {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPasswordEmailVerify()));
-    }
-    
     return Scaffold(
       body: ScreenBackground(
         child: Padding(
-          padding: const EdgeInsetsGeometry.all(30.0),
-          child: SingleChildScrollView(
-            child: Column(
+          padding: const EdgeInsets.all(30.0),
+          child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 200),
             Text(
-              "Get Started With",
+              "Your Email Address",
               style: Theme.of(context).textTheme.titleLarge,
             ),
 
-            const SizedBox(height: 25),
-            TextFormField(
-              decoration: InputDecoration(
-                hintText: 'Email',
+            const SizedBox(height: 10),
+            Text(
+              "A 6 digits code will be sent to your email address",
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                color: Colors.grey,
               ),
             ),
 
             const SizedBox(height: 10),
             TextFormField(
               decoration: InputDecoration(
-                hintText: 'Password',
+                hintText: 'Email',
               ),
             ),
-
-            const SizedBox(height: 20),
+            
+            const SizedBox(height: 16),
             FilledButton(
               onPressed: (){}, 
               child: Icon(Icons.arrow_circle_right_outlined),
@@ -56,21 +45,16 @@ class _LoginPageState extends State<LoginPage> {
             Center(
               child: Column(
               children: [
-                TextButton(
-              onPressed: _onTapForgotPassword, 
-              child: Text("Forgot Pasword?"),
-            ),
-
             RichText(
               text: TextSpan(
-                text: "Don't have an account? ",
+                text: "Already have an account? ",
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),
                 children: [
                   TextSpan(
-                    text: "Sign Up",
+                    text: "Sign in",
                     style: TextStyle(
                       color: Colors.green,
                       fontWeight: FontWeight.bold,
@@ -84,8 +68,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ],
         ),
-        ),
-      )
+      ),
       ),
     );
   }
