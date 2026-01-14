@@ -4,8 +4,8 @@ import 'package:task_manager/ui/screens/forgot_password_verify_otp_screen.dart';
 import 'package:task_manager/ui/screens/login_page.dart';
 import 'package:task_manager/ui/widgets/screen_background.dart';
 
-class ForgotPasswordEmailVerify extends StatelessWidget {
-  const ForgotPasswordEmailVerify({super.key});
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +13,7 @@ class ForgotPasswordEmailVerify extends StatelessWidget {
     void _onTapSignIn() {
       Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
     }
-
-
+    
     return Scaffold(
       body: ScreenBackground(
         child: Padding(
@@ -22,18 +21,10 @@ class ForgotPasswordEmailVerify extends StatelessWidget {
           child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 200),
+            const SizedBox(height: 110),
             Text(
-              "Your Email Address",
+              "Join With Us",
               style: Theme.of(context).textTheme.titleLarge,
-            ),
-
-            const SizedBox(height: 10),
-            Text(
-              "A 6 digits code will be sent to your email address",
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                color: Colors.grey,
-              ),
             ),
 
             const SizedBox(height: 10),
@@ -42,6 +33,35 @@ class ForgotPasswordEmailVerify extends StatelessWidget {
                 hintText: 'Email',
               ),
             ),
+
+            const SizedBox(height: 15),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: 'First Name',
+              ),
+            ),
+
+            const SizedBox(height: 15),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: 'Last Name',
+              ),
+            ),
+
+            const SizedBox(height: 15),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: 'Phone Number',
+              ),
+            ),
+
+            const SizedBox(height: 15),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: 'Password',
+              ),
+            ),
+
             
             const SizedBox(height: 16),
             FilledButton(

@@ -1,5 +1,8 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:task_manager/ui/screens/login_page.dart';
+import 'package:task_manager/ui/screens/reset_password_screen.dart';
 import 'package:task_manager/ui/widgets/screen_background.dart';
 
 class ForgotPasswordVerifyOtpScreen extends StatefulWidget {
@@ -12,6 +15,12 @@ class ForgotPasswordVerifyOtpScreen extends StatefulWidget {
 class _ForgotPasswordVerifyOtpScreenState extends State<ForgotPasswordVerifyOtpScreen> {
   @override
   Widget build(BuildContext context) {
+
+    void _onTapSignIn() {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+    }
+
+
     return Scaffold(
       body: ScreenBackground(
         child: Padding(
@@ -57,7 +66,9 @@ class _ForgotPasswordVerifyOtpScreenState extends State<ForgotPasswordVerifyOtpS
             
             const SizedBox(height: 16),
             FilledButton(
-              onPressed: (){}, 
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ResetPasswordScreen()));
+              }, 
               child: Icon(Icons.arrow_circle_right_outlined),
             ),
 
@@ -80,6 +91,7 @@ class _ForgotPasswordVerifyOtpScreenState extends State<ForgotPasswordVerifyOtpS
                       color: Colors.green,
                       fontWeight: FontWeight.bold,
                     ),
+                    recognizer: TapGestureRecognizer()..onTap = _onTapSignIn,
                   ),
                 ],
               ),

@@ -1,20 +1,12 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:task_manager/ui/screens/forgot_password_verify_otp_screen.dart';
-import 'package:task_manager/ui/screens/login_page.dart';
 import 'package:task_manager/ui/widgets/screen_background.dart';
 
-class ForgotPasswordEmailVerify extends StatelessWidget {
-  const ForgotPasswordEmailVerify({super.key});
+class ResetPasswordScreen extends StatelessWidget {
+  const ResetPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-
-    void _onTapSignIn() {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-    }
-
-
     return Scaffold(
       body: ScreenBackground(
         child: Padding(
@@ -24,13 +16,13 @@ class ForgotPasswordEmailVerify extends StatelessWidget {
           children: [
             const SizedBox(height: 200),
             Text(
-              "Your Email Address",
+              "Set Password",
               style: Theme.of(context).textTheme.titleLarge,
             ),
 
             const SizedBox(height: 10),
             Text(
-              "A 6 digits code will be sent to your email address",
+              "Password should be at least 6 letters and combination of numbers",
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: Colors.grey,
               ),
@@ -39,7 +31,14 @@ class ForgotPasswordEmailVerify extends StatelessWidget {
             const SizedBox(height: 10),
             TextFormField(
               decoration: InputDecoration(
-                hintText: 'Email',
+                hintText: 'Password',
+              ),
+            ),
+
+            const SizedBox(height: 15),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: 'Confirm Password',
               ),
             ),
             
@@ -70,7 +69,6 @@ class ForgotPasswordEmailVerify extends StatelessWidget {
                       color: Colors.green,
                       fontWeight: FontWeight.bold,
                     ),
-                    recognizer: TapGestureRecognizer()..onTap = _onTapSignIn,
                   ),
                 ],
               ),
