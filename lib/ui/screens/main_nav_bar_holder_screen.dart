@@ -26,11 +26,15 @@ class _MainNavBarHolderScreenState extends State<MainNavBarHolderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: _screens[_selectedIndex],
       bottomNavigationBar: NavigationBar(
         
         selectedIndex: _selectedIndex,
         onDestinationSelected: (int index){
-
+          _selectedIndex = index;
+          setState((){
+            
+          });
         },
         
         destinations: [
