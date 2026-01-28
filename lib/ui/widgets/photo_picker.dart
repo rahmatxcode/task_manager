@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-
 class photo_picker extends StatelessWidget {
   const photo_picker({
     super.key, required this.onTap, this.selectedPhoto,
@@ -8,6 +7,7 @@ class photo_picker extends StatelessWidget {
 
   final VoidCallback onTap;
   final XFile ? selectedPhoto;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -16,39 +16,34 @@ class photo_picker extends StatelessWidget {
         height: 50,
         width: double.maxFinite,
         decoration: BoxDecoration(
-          color: Colors.grey.shade100,
-          borderRadius: BorderRadius.circular(5),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(5)
         ),
         child: Row(
-          children:[
+          children: [
             Container(
-              child: Text(
-                'Photo',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
+              child: Text('Photo',
+                style: TextStyle(color: Colors.white),
               ),
               alignment: Alignment.center,
               width: 80,
               height: 50,
               decoration: BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10),
-                  bottomLeft: Radius.circular(10),
-                ),
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      bottomLeft: Radius.circular(10)
+                  )
               ),
             ),
             Expanded(
-              child: Text(
-                selectedPhoto == null ? 'No photo selected' : selectedPhoto!.name,
-                style: TextStyle(
-                  overflow: TextOverflow.ellipsis,
-                  color: Colors.black,
-                ),
+              child: Text(selectedPhoto == null  ? "no photo selected" : selectedPhoto!.name,
+              style: TextStyle(
+                overflow: TextOverflow.ellipsis,
+              ),
                 maxLines: 1,
               ),
-            ),
+            )
           ],
         ),
       ),

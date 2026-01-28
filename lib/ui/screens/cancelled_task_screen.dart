@@ -12,19 +12,20 @@ class CancelledTaskScreen extends StatefulWidget {
 class _CancelledTaskScreenState extends State<CancelledTaskScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       appBar: TMAppBar(),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 3.0),
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: ListView.separated(
-          itemBuilder: (context, index){
-            return TaskCard(status: 'Cancelled', cardColor: Colors.red,);
-          },
-          separatorBuilder: (context, index){
-            return SizedBox(height: 4,);
-          },
-          itemCount: 10,
-        ),
+
+            itemBuilder: (context,index){
+              // return TaskCard(status: 'Canceled', cardColor: Colors.red,);
+              return Text('');
+            },
+            separatorBuilder: (context,index){
+              return SizedBox(height: 2,);
+            },
+            itemCount: 10),
       ),
     );
   }

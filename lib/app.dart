@@ -8,44 +8,51 @@ import 'package:task_manager/ui/screens/update_profile_screen.dart';
 class TaskManagerApp extends StatelessWidget {
   const TaskManagerApp({super.key});
 
+  static GlobalKey <NavigatorState> navigator = GlobalKey<NavigatorState>();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorSchemeSeed: Colors.green,
         textTheme: TextTheme(
           titleLarge: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.w600,
-          ),
+            fontSize: 28,
+            fontWeight: FontWeight.w600
+          )
         ),
         inputDecorationTheme: InputDecorationTheme(
-          filled: true,
           fillColor: Colors.white,
+          filled: true,
+
           hintStyle: TextStyle(color: Colors.grey),
-          border: OutlineInputBorder(borderSide: BorderSide.none),
-          enabledBorder: OutlineInputBorder(borderSide: BorderSide.none),
+          border: OutlineInputBorder(
+              borderSide: BorderSide.none
+          ),
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide.none
+          ),
+
         ),
+
         filledButtonTheme: FilledButtonThemeData(
           style: FilledButton.styleFrom(
             backgroundColor: Colors.green,
             fixedSize: Size.fromWidth(double.maxFinite),
-            padding: EdgeInsets.symmetric(vertical:12),
+            padding: EdgeInsets.symmetric(vertical: 12),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
-        ),
+              borderRadius: BorderRadius.circular(8)
+            )
+          )
+        )
       ),
       initialRoute: '/SplashScreen',
-
       routes: {
-        '/SplashScreen': (_) => SplashScreen(),
-        '/Login': (_) => LoginPage(),
-        '/SignUp': (_) => SignUpScreen(),
-        '/NavBar': (_) => MainNavBarHolderScreen(),
-        '/UpdateProfile': (_) => UpdateProfileScreen(),
+        '/SplashScreen':(_) => SplashScreen(),
+        '/Login': (_)=> LoginPage(),
+        '/SignUp': (_)=> SignUpScreen(),
+        '/NavBar': (_)=> MainNavBarHolderScreen(),
+        '/updateProfile': (_)=> UpdateProfileScreen(),
       },
     );
   }
