@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/ui/widgets/task_card.dart';
+import 'package:task_manager/ui/widgets/tm_app_bar.dart';
 
 class CancelledTaskScreen extends StatefulWidget {
   const CancelledTaskScreen({super.key});
@@ -10,6 +12,20 @@ class CancelledTaskScreen extends StatefulWidget {
 class _CancelledTaskScreenState extends State<CancelledTaskScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: TMAppBar(),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 3.0),
+        child: ListView.separated(
+          itemBuilder: (context, index){
+            return TaskCard(status: 'Cancelled', cardColor: Colors.red,);
+          },
+          separatorBuilder: (context, index){
+            return SizedBox(height: 4,);
+          },
+          itemCount: 10,
+        ),
+      ),
+    );
   }
 }
